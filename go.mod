@@ -1,4 +1,4 @@
-module try
+module github.com/mavincci/NILTOE
 
 go 1.16
 
