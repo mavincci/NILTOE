@@ -79,6 +79,21 @@ func (game *Game) Next(input Input) {
 
 	game.Board[input / 3][input % 3] = game.Player
 
+	fmt.Print("{{")
+	for _, i := range game.Board {
+		for _, j := range i {
+			if j == X {
+				fmt.Printf("%d, ", 1)
+			} else if j == O {
+				fmt.Printf("%d, ", 2)
+			} else {
+				fmt.Printf("%d, ", 0)
+			}
+		}
+	}
+
+	fmt.Printf("}, {%f}},\n", float32(input)/9)
+
 	if game.CheckWin() {
 		game.nonErrorHalt(fmt.Sprintf("%s WON", game.State.Player))
 		return
